@@ -5,7 +5,7 @@ import { jsPDF } from "jspdf";
 import { useRouter } from "next/navigation";
 
 type Experience = {
-  type: "kerja" | "magang" | "organisasi" | "pkl"; // Tambah tipe pengalaman
+  type: "kerja" | "magang" | "organisasi" | "pkl";
   company: string;
   position: string;
   description: string[];
@@ -41,7 +41,12 @@ export default function CVForm() {
     if (field === "experience" && index !== undefined) {
       const updatedExp = [...formData.experiences];
       if (name === "description") return;
-      updatedExp[index][name as keyof Omit<Experience, "description">] = value;
+      if (name === "type") {
+        // Pastikan value sesuai tipe literal
+        updatedExp[index].type = value as "kerja" | "magang" | "organisasi" | "pkl";
+      } else {
+        updatedExp[index][name as keyof Omit<Experience, "description" | "type">] = value;
+      }
       setFormData({ ...formData, experiences: updatedExp });
     } else if (field === "education") {
       setFormData({ ...formData, education: { ...formData.education, [name as keyof Education]: value } });
