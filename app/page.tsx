@@ -6,10 +6,10 @@ export default function Home() {
       <Navbar />
       <main className="container text-center">
         <h1 className="text-5xl font-bold text-cyan-400 mb-4 animate-glow">
-          CV ATS Gatis!
+          CV ATS Gratis!
         </h1>
         <p className="text-lg text-gray-300 mb-8 max-w-2xl">
-          Bikin lamaran lo gampang dilirik HRD. Cepet, simpel, langsung jadi!
+          Bikin CV ATS gratis, biar lamaran lo gampang dilirik sistem ATS. Buatnya cepet, tinggal isi langsung jadi. Cocok buat lo yang gamau ribet.
         </p>
         <a href="/cv-form" className="bg-cyan-500 text-black px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors">
           Gass Buat
