@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-black text-white min-h-screen overflow-x-hidden;
+}
+
+/* Animasi Header */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow {
+  0% { text-shadow: 0 0 5px #00b4d8; }
+  50% { text-shadow: 0 0 20px #00b4d8, 0 0 30px #00b4d8; }
+  100% { text-shadow: 0 0 5px #00b4d8; }
+}
+
+.animate-slide-down {
+  animation: slideDown 0.8s ease-out forwards;
+}
+
+.animate-glow {
+  animation: glow 2s infinite;
+}
+
+/* Responsivitas */
+.container {
+  @apply max-w-6xl mx-auto px-4;
+}
+
+@media screen and (min-width: 640px) {
+  h1 { @apply text-3xl; }
+  h2 { @apply text-lg; }
+  .navbar { @apply flex-col items-center space-y-4 py-6; }
+  .navbar-links { @apply flex-col space-y-2; }
+}
+
+@media screen and (min-width: 768px) {
+  h1 { @apply text-4xl; }
+  .navbar { @apply flex-row justify-between py-4; }
+  .navbar-links { @apply flex-row space-x-6 space-y-0; }
+}
